@@ -1,0 +1,11 @@
+--- oslo.upgradecheck-0.1.1/test-requirements.txt~	2018-11-05 21:57:03.000000000 +0000
++++ oslo.upgradecheck-0.1.1/test-requirements.txt	2018-12-23 15:14:31.753882250 +0000
+@@ -2,7 +2,7 @@
+ # of appearance. Changing the order has an impact on the overall integration
+ # process, which may cause wedges in the gate later.
+ 
+-hacking<0.11,>=0.10.0
++hacking
+ oslotest>=1.5.1
+ stestr>=2.0.0
+ 
