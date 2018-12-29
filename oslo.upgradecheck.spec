@@ -4,7 +4,7 @@
 #
 Name     : oslo.upgradecheck
 Version  : 0.1.1
-Release  : 1
+Release  : 2
 URL      : https://files.pythonhosted.org/packages/a2/96/fc882ff29ba1e2ba696b0466bea91d9218ba85748226b380a8d91ccde841/oslo.upgradecheck-0.1.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a2/96/fc882ff29ba1e2ba696b0466bea91d9218ba85748226b380a8d91ccde841/oslo.upgradecheck-0.1.1.tar.gz
 Summary  : Common code for writing OpenStack upgrade checks
