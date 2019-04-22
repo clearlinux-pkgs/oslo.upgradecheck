@@ -1,6 +1,22 @@
 CHANGES
 =======
 
+0.2.1
+-----
+
+
+0.2.0
+-----
+
+* Change python3.5 job to python3.7 job on Stein+
+* Add doc params to run and register\_cli\_opts
+* Move displayed checker title to be in variable
+* Separate opt registration from command running
+* Update py33,py34 to py35,py36
+* doc: Switch to openstackdocstheme
+* doc: Remove crud from conf.py file
+* Change openstack-dev to openstack-discuss
+
 0.1.1
 -----
 
