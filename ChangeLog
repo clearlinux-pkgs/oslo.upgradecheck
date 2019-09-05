@@ -1,6 +1,27 @@
 CHANGES
 =======
 
+0.3.2
+-----
+
+
+0.3.1
+-----
+
+* Add Python 3 Train unit tests
+* Move doc related modules to doc/requirements.txt
+
+0.3.0
+-----
+
+* Address nits from json change
+* Enable JSON results output
+* Sync Sphinx requirement
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Update master for stable/stein
+
 0.2.1
 -----
 
