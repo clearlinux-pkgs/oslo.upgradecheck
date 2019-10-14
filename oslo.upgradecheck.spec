@@ -4,7 +4,7 @@
 #
 Name     : oslo.upgradecheck
 Version  : 0.3.2
-Release  : 5
+Release  : 6
 URL      : https://files.pythonhosted.org/packages/d9/13/879ee7a2711e3c2c0ee2a757389eae1cac24067d50ed6cc4a191566c1626/oslo.upgradecheck-0.3.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/d9/13/879ee7a2711e3c2c0ee2a757389eae1cac24067d50ed6cc4a191566c1626/oslo.upgradecheck-0.3.2.tar.gz
 Summary  : Common code for writing OpenStack upgrade checks
@@ -14,15 +14,18 @@ Requires: oslo.upgradecheck-license = %{version}-%{release}
 Requires: oslo.upgradecheck-python = %{version}-%{release}
 Requires: oslo.upgradecheck-python3 = %{version}-%{release}
 Requires: Babel
-Requires: enum34
 Requires: oslo.config
 Requires: oslo.i18n
 BuildRequires : Babel
+BuildRequires : Sphinx
+BuildRequires : Sphinx-python
 BuildRequires : buildreq-distutils3
-BuildRequires : enum34
+BuildRequires : dulwich-python
 BuildRequires : hacking
+BuildRequires : openstackdocstheme-python
 BuildRequires : oslo.config
 BuildRequires : oslo.i18n
+BuildRequires : oslosphinx
 BuildRequires : oslotest
 BuildRequires : oslotest-python
 BuildRequires : pbr
@@ -30,6 +33,7 @@ BuildRequires : pluggy
 BuildRequires : prettytable
 BuildRequires : py-python
 BuildRequires : pytest
+BuildRequires : reno-python
 BuildRequires : stestr
 BuildRequires : stestr-python
 BuildRequires : tox
@@ -37,10 +41,15 @@ BuildRequires : virtualenv
 Patch1: req.patch
 
 %description
-=================
 oslo.upgradecheck
-=================
-Common code for writing OpenStack upgrade checks
+        =================
+        
+        Common code for writing OpenStack upgrade checks
+        
+        This project contains the common code necessary for writing upgrade checks
+        in OpenStack projects. It includes a module (oslo_upgradecheck.upgradecheck)
+        for the common code as well as an example (oslo_upgradecheck.__main__) of
+        integrating that code into a project.
 
 %package license
 Summary: license components for the oslo.upgradecheck package.
@@ -77,8 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567648373
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1571082769
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -99,7 +107,7 @@ PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/oslo.upgradecheck
-cp LICENSE %{buildroot}/usr/share/package-licenses/oslo.upgradecheck/LICENSE
+cp %{_builddir}/oslo.upgradecheck-0.3.2/LICENSE %{buildroot}/usr/share/package-licenses/oslo.upgradecheck/294b43b2cec9919063be1a3b49e8722648424779
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -110,7 +118,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/oslo.upgradecheck/LICENSE
+/usr/share/package-licenses/oslo.upgradecheck/294b43b2cec9919063be1a3b49e8722648424779
 
 %files python
 %defattr(-,root,root,-)
