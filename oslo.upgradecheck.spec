@@ -4,7 +4,7 @@
 #
 Name     : oslo.upgradecheck
 Version  : 0.3.2
-Release  : 6
+Release  : 8
 URL      : https://files.pythonhosted.org/packages/d9/13/879ee7a2711e3c2c0ee2a757389eae1cac24067d50ed6cc4a191566c1626/oslo.upgradecheck-0.3.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/d9/13/879ee7a2711e3c2c0ee2a757389eae1cac24067d50ed6cc4a191566c1626/oslo.upgradecheck-0.3.2.tar.gz
 Summary  : Common code for writing OpenStack upgrade checks
@@ -17,27 +17,11 @@ Requires: Babel
 Requires: oslo.config
 Requires: oslo.i18n
 BuildRequires : Babel
-BuildRequires : Sphinx
-BuildRequires : Sphinx-python
 BuildRequires : buildreq-distutils3
-BuildRequires : dulwich-python
-BuildRequires : hacking
-BuildRequires : openstackdocstheme-python
 BuildRequires : oslo.config
 BuildRequires : oslo.i18n
-BuildRequires : oslosphinx
-BuildRequires : oslotest
-BuildRequires : oslotest-python
 BuildRequires : pbr
-BuildRequires : pluggy
 BuildRequires : prettytable
-BuildRequires : py-python
-BuildRequires : pytest
-BuildRequires : reno-python
-BuildRequires : stestr
-BuildRequires : stestr-python
-BuildRequires : tox
-BuildRequires : virtualenv
 Patch1: req.patch
 
 %description
@@ -79,6 +63,7 @@ python3 components for the oslo.upgradecheck package.
 
 %prep
 %setup -q -n oslo.upgradecheck-0.3.2
+cd %{_builddir}/oslo.upgradecheck-0.3.2
 %patch1 -p1
 
 %build
@@ -86,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571082769
+export SOURCE_DATE_EPOCH=1574291697
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -98,11 +83,6 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
-%check
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
