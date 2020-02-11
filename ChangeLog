@@ -1,6 +1,17 @@
 CHANGES
 =======
 
+0.4.0
+-----
+
+* tox: Trivial cleanup
+* Bump Babel to 2.3.4 on lower-constraint
+* tox: Keeping going with docs
+* Switch to Ussuri jobs
+* Bump the openstackdocstheme extension to 1.20
+* Update the constraints url
+* Update master for stable/train
+
 0.3.2
 -----
 
