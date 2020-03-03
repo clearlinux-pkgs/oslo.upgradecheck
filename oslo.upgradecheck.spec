@@ -4,7 +4,7 @@
 #
 Name     : oslo.upgradecheck
 Version  : 1.0.0
-Release  : 12
+Release  : 13
 URL      : https://files.pythonhosted.org/packages/6a/7c/225ebe0fe533ddfa6ae793493109c0019d44ec83f399be8f85b95ffc37ae/oslo.upgradecheck-1.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/6a/7c/225ebe0fe533ddfa6ae793493109c0019d44ec83f399be8f85b95ffc37ae/oslo.upgradecheck-1.0.0.tar.gz
 Summary  : Common code for writing OpenStack upgrade checks
@@ -28,7 +28,18 @@ Patch1: req.patch
 =================
 oslo.upgradecheck
 =================
+
 Common code for writing OpenStack upgrade checks
+
+This project contains the common code necessary for writing upgrade checks
+in OpenStack projects. It includes a module (oslo_upgradecheck.upgradecheck)
+for the common code as well as an example (oslo_upgradecheck.__main__) of
+integrating that code into a project.
+
+* Free software: Apache license
+* Documentation: https://docs.openstack.org/oslo.upgradecheck/latest/
+* Source: https://opendev.org/openstack/oslo.upgradecheck
+* Bugs: https://bugs.launchpad.net/oslo.upgradecheck
 
 %package license
 Summary: license components for the oslo.upgradecheck package.
@@ -51,6 +62,7 @@ python components for the oslo.upgradecheck package.
 Summary: python3 components for the oslo.upgradecheck package.
 Group: Default
 Requires: python3-core
+Provides: pypi(oslo.upgradecheck)
 
 %description python3
 python3 components for the oslo.upgradecheck package.
@@ -66,7 +78,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581646547
+export SOURCE_DATE_EPOCH=1583195134
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
